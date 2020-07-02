@@ -1,6 +1,6 @@
 package com.yuliia.vlasenko.imagesearcher.repository;
 
-import com.yuliia.vlasenko.imagesearcher.download.PictureMetaData;
+import com.yuliia.vlasenko.imagesearcher.api.PictureMetaData;
 import com.yuliia.vlasenko.imagesearcher.repository.entities.PictureMetaDataEntity;
 import org.springframework.stereotype.Component;
 

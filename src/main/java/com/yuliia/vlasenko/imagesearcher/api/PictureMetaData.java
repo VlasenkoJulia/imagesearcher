@@ -1,4 +1,4 @@
-package com.yuliia.vlasenko.imagesearcher.download;
+package com.yuliia.vlasenko.imagesearcher.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

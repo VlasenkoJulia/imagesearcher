@@ -1,4 +1,4 @@
-package com.yuliia.vlasenko.imagesearcher.download;
+package com.yuliia.vlasenko.imagesearcher.api.auth;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;

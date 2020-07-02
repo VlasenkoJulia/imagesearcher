@@ -1,4 +1,4 @@
-package com.yuliia.vlasenko.imagesearcher.download;
+package com.yuliia.vlasenko.imagesearcher.api.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

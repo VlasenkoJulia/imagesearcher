@@ -1,5 +1,9 @@
-package com.yuliia.vlasenko.imagesearcher.download;
+package com.yuliia.vlasenko.imagesearcher.downloader;
 
+import com.yuliia.vlasenko.imagesearcher.api.ImageApi;
+import com.yuliia.vlasenko.imagesearcher.api.Images;
+import com.yuliia.vlasenko.imagesearcher.api.Picture;
+import com.yuliia.vlasenko.imagesearcher.api.PictureMetaData;
 import com.yuliia.vlasenko.imagesearcher.repository.PictureMetaDataRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

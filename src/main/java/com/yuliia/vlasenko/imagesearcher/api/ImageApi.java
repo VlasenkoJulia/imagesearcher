@@ -1,5 +1,6 @@
-package com.yuliia.vlasenko.imagesearcher.download;
+package com.yuliia.vlasenko.imagesearcher.api;
 
+import com.yuliia.vlasenko.imagesearcher.api.auth.AuthService;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
