@@ -19,7 +19,7 @@ public class AuthService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public void authenticate() {
+    synchronized public void authenticate() {
         log.info("Authenticate token request...");
         AuthRequest authRequest = new AuthRequest(apiKey);
         AuthResponse authResponse = restTemplate.postForObject("http://interview.agileengine.com/auth", authRequest, AuthResponse.class);
@@ -29,7 +29,7 @@ public class AuthService {
         this.token = authResponse.getToken();
     }
 
-    public String getToken() {
+    synchronized public String getToken() {
         if (token == null) {
             authenticate();
         }
