@@ -13,11 +13,11 @@ import static java.util.stream.Collectors.toList;
 @Slf4j
 public class ImageDownloadScheduler {
 
-    private final ImageDownloader imageDownloader;
+    private final ImageApi imageApi;
     private final PictureMetaDataRepository repository;
 
-    public ImageDownloadScheduler(ImageDownloader imageDownloader, PictureMetaDataRepository repository) {
-        this.imageDownloader = imageDownloader;
+    public ImageDownloadScheduler(ImageApi imageApi, PictureMetaDataRepository repository) {
+        this.imageApi = imageApi;
         this.repository = repository;
     }
 
@@ -25,17 +25,16 @@ public class ImageDownloadScheduler {
             fixedRateString = "${scheduler.fixedRateString}")
     public void downloadImages() {
         log.info("Start download all images...");
-        AuthResponse authToken = imageDownloader.getAuthToken("23567b218376f79d9415");
-        downloadAllImages(authToken.getToken());
+        downloadAllImages();
     }
 
-    private void downloadAllImages(String token) {
+    private void downloadAllImages() {
         boolean hasMore = true;
         for (int i = 1; hasMore; i++) {
-            Images images = imageDownloader.getImages(i, token);
+            Images images = imageApi.getImages(i);
             log.info("Downloaded page {}", i);
             List<String> pictureIds = images.getPictures().stream().map(Picture::getId).collect(toList());
-            List<PictureMetaData> pictureMetaData = imageDownloader.getMetaData(pictureIds, token);
+            List<PictureMetaData> pictureMetaData = imageApi.getMetaData(pictureIds);
             repository.save(pictureMetaData);
             hasMore = images.isHasMore();
         }
